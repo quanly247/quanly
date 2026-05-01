@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HạnhPhúcPM - Đăng kí</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, #1d4ed8, transparent 35%),
+    radial-gradient(circle at bottom right, #0f766e, transparent 35%),
+    #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.card {
+  width: 360px;
+  padding: 32px 28px;
+  border-radius: 22px;
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.45);
+  backdrop-filter: blur(16px);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cloud {
+  width: 58px;
+  height: 38px;
+  margin: 0 auto 12px;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  border-radius: 30px;
+  position: relative;
+  box-shadow: 0 0 25px rgba(56,189,248,0.5);
+}
+
+.cloud::before {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: #38bdf8;
+  border-radius: 50%;
+  top: -12px;
+  left: 8px;
+}
+
+.cloud::after {
+  content: "</>";
+  position: absolute;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  left: 14px;
+  top: 10px;
+}
+
+.logo-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.logo-title span {
+  color: #38bdf8;
+}
+
+.logo-sub {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.input-box {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  padding: 0 14px;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 16px;
+}
+
+.input-box::placeholder {
+  color: #94a3b8;
+}
+
+.input-box:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #cbd5e1;
+  margin-bottom: 24px;
+}
+
+.options a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.btn {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(37,99,235,0.4);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.footer {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="logo">
+    <div class="cloud"></div>
+    <div class="logo-title">HạnhPhúc<span>PM</span></div>
+    <div class="logo-sub">Hệ thống theo dõi & quản lý thông minh</div>
+  </div>
+
+  <div class="section-title">Đắng SĐT Cần Theo Dõi</div>
+
+  <input
+    class="input-box"
+    type="text"
+    placeholder=" Nhập số điện thoại cần theo dõi"
+  >
+
+  <div class="options">
+    <label>
+      <input type="checkbox" checked>
+      Ghi nhớ đăng nhập
+    </label>
+
+    <a href="#">Quên mật khẩu?</a>
+  </div>
+
+  <button class="btn">Đăng kí</button>
+
+  <div class="footer">Secure Management Platform</div>
+
+</div>
+<script>
+document.getElementById("registerForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const phone = document.getElementById("phone").value.trim();
+  const agree = document.getElementById("agree").checked;
+  const msg = document.getElementById("msg");
+
+  if (!agree) {
+    msg.innerText = "Bạn cần đồng ý trước khi đăng kí";
+    return;
+  }
+
+  const res = await fetch("send.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ phone })
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    msg.innerText = "Đăng kí thành công!";
+  } else {
+    msg.innerText = "Có lỗi, vui lòng thử lại";
+  }
+});
+</script>
+
+</body>
+</html>
